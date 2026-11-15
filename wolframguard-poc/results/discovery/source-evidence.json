@@ -1,0 +1,1870 @@
+[
+  {
+    "path": "C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__AgentTools-2.2.0\\PacletInfo.wl",
+    "sha256": "c81480c5f689334c1b32bbc49a59c028c1179265cb08b25f332ba5fca37bd5da",
+    "excerpts": [
+      {
+        "start": 1,
+        "end": 18,
+        "lines": [
+          {
+            "line": 1,
+            "text": "PacletObject[ <|"
+          },
+          {
+            "line": 2,
+            "text": "    \"Name\"             -> \"Wolfram/AgentTools\","
+          },
+          {
+            "line": 3,
+            "text": "    \"Description\"      -> \"Provides tools and integrations for connecting Wolfram Language to AI agents and LLMs\","
+          },
+          {
+            "line": 4,
+            "text": "    \"Creator\"          -> \"Richard Hennigan (Wolfram Research)\","
+          },
+          {
+            "line": 5,
+            "text": "    \"Version\"          -> \"2.2.0\","
+          },
+          {
+            "line": 6,
+            "text": "    \"WolframVersion\"   -> \"14.3+\","
+          },
+          {
+            "line": 7,
+            "text": "    \"PublisherID\"      -> \"Wolfram\","
+          },
+          {
+            "line": 8,
+            "text": "    \"License\"          -> \"MIT\","
+          },
+          {
+            "line": 9,
+            "text": "    \"ReleaseID\"        -> \"9c99e2da5286c2ff7ac2298956107cd9334c6e90\","
+          },
+          {
+            "line": 10,
+            "text": "    \"ReleaseDate\"      -> \"2026-07-24T18:26:19Z\","
+          },
+          {
+            "line": 11,
+            "text": "    \"ReleaseURL\"       -> \"https://github.com/WolframResearch/AgentTools/releases/tag/v2.2.0\","
+          },
+          {
+            "line": 12,
+            "text": "    \"ActionURL\"        -> \"https://github.com/WolframResearch/AgentTools/actions/runs/30116410148\","
+          },
+          {
+            "line": 13,
+            "text": "    \"CommitURL\"        -> \"https://github.com/WolframResearch/AgentTools/commit/9c99e2da5286c2ff7ac2298956107cd9334c6e90\","
+          },
+          {
+            "line": 14,
+            "text": "    \"PrimaryContext\"   -> \"Wolfram`AgentTools`\","
+          },
+          {
+            "line": 15,
+            "text": "    \"DocumentationURL\" -> \"https://paclets.com\","
+          },
+          {
+            "line": 16,
+            "text": "    \"Loading\"          -> Automatic,"
+          },
+          {
+            "line": 17,
+            "text": "    \"Extensions\"       -> {"
+          },
+          {
+            "line": 18,
+            "text": "        { \"Kernel\","
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__AgentTools-2.2.0\\Kernel\\Tools\\WolframLanguageEvaluator.wl",
+    "sha256": "e5d75c895c9d90bfad2d5bbc6865ab77de700e2fbea60ae89234781285f86a0c",
+    "excerpts": [
+      {
+        "start": 30,
+        "end": 47,
+        "lines": [
+          {
+            "line": 30,
+            "text": "(*Tool Option Configuration*)"
+          },
+          {
+            "line": 31,
+            "text": "$evaluatorMethod   := toolOptionValue[ \"WolframLanguageEvaluator\", \"Method\" ];"
+          },
+          {
+            "line": 32,
+            "text": "$imageExportMethod := toolOptionValue[ \"WolframLanguageEvaluator\", \"ImageExportMethod\" ];"
+          },
+          {
+            "line": 33,
+            "text": "$maxCharacterCount := toolOptionValue[ \"WolframLanguageEvaluator\", \"MaxCharacterCount\" ];"
+          },
+          {
+            "line": 34,
+            "text": "$maxSessionCount   := toolOptionValue[ \"WolframLanguageEvaluator\", \"MaxSessionCount\" ];"
+          },
+          {
+            "line": 35,
+            "text": "$maxSessionBytes   := toolOptionValue[ \"WolframLanguageEvaluator\", \"MaxSessionBytes\" ];"
+          },
+          {
+            "line": 36,
+            "text": "$maxSessionAge     := toolOptionValue[ \"WolframLanguageEvaluator\", \"MaxSessionAge\"   ];"
+          },
+          {
+            "line": 37,
+            "text": ""
+          },
+          {
+            "line": 38,
+            "text": "(* ::**************************************************************************************************************:: *)"
+          },
+          {
+            "line": 39,
+            "text": "(* ::Section::Closed:: *)"
+          },
+          {
+            "line": 40,
+            "text": "(*Prompts*)"
+          },
+          {
+            "line": 41,
+            "text": "(* TODO: We need a way to make this description dynamic, e.g. when \"Method\" is \"Session\", it also has write access *)"
+          },
+          {
+            "line": 42,
+            "text": "$wolframLanguageEvaluatorToolDescription = \"\\"
+          },
+          {
+            "line": 43,
+            "text": "Evaluates Wolfram Language code for the user in a Wolfram Language kernel."
+          },
+          {
+            "line": 44,
+            "text": "Do not ask permission to evaluate code."
+          },
+          {
+            "line": 45,
+            "text": "You have read access to local files."
+          },
+          {
+            "line": 46,
+            "text": "Always use the Wolfram context tool before using this tool to make sure you have the most up-to-date information."
+          },
+          {
+            "line": 47,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "start": 94,
+        "end": 106,
+        "lines": [
+          {
+            "line": 94,
+            "text": "(* ::Subsection::Closed:: *)"
+          },
+          {
+            "line": 95,
+            "text": "(*Default Tool Options*)"
+          },
+          {
+            "line": 96,
+            "text": "$defaultToolOptions[ \"WolframLanguageEvaluator\" ] = <|"
+          },
+          {
+            "line": 97,
+            "text": "    \"Method\"            -> Automatic,"
+          },
+          {
+            "line": 98,
+            "text": "    \"ImageExportMethod\" -> None,"
+          },
+          {
+            "line": 99,
+            "text": "    \"TimeConstraint\"    -> 60,"
+          },
+          {
+            "line": 100,
+            "text": "    \"MaxCharacterCount\" -> 10000,"
+          },
+          {
+            "line": 101,
+            "text": "    \"MaxSessionCount\"   -> 100,"
+          },
+          {
+            "line": 102,
+            "text": "    \"MaxSessionBytes\"   -> 1073741824, (* 1 GB *)"
+          },
+          {
+            "line": 103,
+            "text": "    \"MaxSessionAge\"     -> Quantity[ 1, \"Months\" ]"
+          },
+          {
+            "line": 104,
+            "text": "|>;"
+          },
+          {
+            "line": 105,
+            "text": ""
+          },
+          {
+            "line": 106,
+            "text": "(* ::**************************************************************************************************************:: *)"
+          }
+        ]
+      },
+      {
+        "start": 145,
+        "end": 174,
+        "lines": [
+          {
+            "line": 145,
+            "text": "(* :!CodeAnalysis::BeginBlock:: *)"
+          },
+          {
+            "line": 146,
+            "text": "(* :!CodeAnalysis::Disable::PrivateContextSymbol:: *)"
+          },
+          {
+            "line": 147,
+            "text": "evaluateWolframLanguage0[ code_String, timeConstraint_Integer ] :="
+          },
+          {
+            "line": 148,
+            "text": "    Block[ (* FIXME: Expose this as an option in WolframLanguageToolEvaluate *)"
+          },
+          {
+            "line": 149,
+            "text": "        { Wolfram`Chatbook`Sandbox`Private`$includeDefinitions = False },"
+          },
+          {
+            "line": 150,
+            "text": "            catchAlways @ cb`WolframLanguageToolEvaluate["
+          },
+          {
+            "line": 151,
+            "text": "            code,"
+          },
+          {
+            "line": 152,
+            "text": "            \"String\","
+          },
+          {
+            "line": 153,
+            "text": "            \"Line\"                  -> $line++,"
+          },
+          {
+            "line": 154,
+            "text": "            \"MaxCharacterCount\"     -> $maxCharacterCount,"
+          },
+          {
+            "line": 155,
+            "text": "            \"AppendRetryNotice\"     -> False,"
+          },
+          {
+            "line": 156,
+            "text": "            \"AppendURIInstructions\" -> False,"
+          },
+          {
+            "line": 157,
+            "text": "            \"Method\"                -> getEvaluatorMethod[ ],"
+          },
+          {
+            "line": 158,
+            "text": "            \"TimeConstraint\"        -> timeConstraint"
+          },
+          {
+            "line": 159,
+            "text": "        ]"
+          },
+          {
+            "line": 160,
+            "text": "    ];"
+          },
+          {
+            "line": 161,
+            "text": "(* :!CodeAnalysis::EndBlock:: *)"
+          },
+          {
+            "line": 162,
+            "text": "evaluateWolframLanguage0 // endDefinition;"
+          },
+          {
+            "line": 163,
+            "text": ""
+          },
+          {
+            "line": 164,
+            "text": "(* ::**************************************************************************************************************:: *)"
+          },
+          {
+            "line": 165,
+            "text": "(* ::Subsubsection::Closed:: *)"
+          },
+          {
+            "line": 166,
+            "text": "(*getEvaluatorMethod*)"
+          },
+          {
+            "line": 167,
+            "text": "getEvaluatorMethod // beginDefinition;"
+          },
+          {
+            "line": 168,
+            "text": "getEvaluatorMethod[ ] := getEvaluatorMethod @ $evaluatorMethod;"
+          },
+          {
+            "line": 169,
+            "text": "getEvaluatorMethod[ Automatic ] := If[ $CloudEvaluation, \"Cloud\", \"Session\" ];"
+          },
+          {
+            "line": 170,
+            "text": "getEvaluatorMethod[ other_ ] := other;"
+          },
+          {
+            "line": 171,
+            "text": "getEvaluatorMethod // endDefinition;"
+          },
+          {
+            "line": 172,
+            "text": ""
+          },
+          {
+            "line": 173,
+            "text": "(* ::**************************************************************************************************************:: *)"
+          },
+          {
+            "line": 174,
+            "text": "(* ::Subsubsection::Closed:: *)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__AgentTools-2.2.0\\Kernel\\Server\\Shared.wl",
+    "sha256": "c2d7479849eb2cb0900323c4e56f44b4047181552d903f088c80844efdc3194d",
+    "excerpts": [
+      {
+        "start": 419,
+        "end": 436,
+        "lines": [
+          {
+            "line": 419,
+            "text": "    $clientSupportsRoots = ! MissingQ @ msg[ \"params\", \"capabilities\", \"roots\" ];"
+          },
+          {
+            "line": 420,
+            "text": "    If[ ! stderrEnabledQ[ ], $Messages = { } ];"
+          },
+          {
+            "line": 421,
+            "text": "    <| req, \"result\" -> initResponse[ $currentMCPServer, msg ] |>"
+          },
+          {
+            "line": 422,
+            "text": ");"
+          },
+          {
+            "line": 423,
+            "text": ""
+          },
+          {
+            "line": 424,
+            "text": "handleMethod[ \"ping\"          , msg_, req_ ] := <| req, \"result\" -> <| |> |>;"
+          },
+          {
+            "line": 425,
+            "text": "handleMethod[ \"resources/list\", msg_, req_ ] := <| req, \"result\" -> <| \"resources\" -> listUIResources[ ] |> |>;"
+          },
+          {
+            "line": 426,
+            "text": "handleMethod[ \"resources/read\", msg_, req_ ] := handleResourceRead[ msg, req ];"
+          },
+          {
+            "line": 427,
+            "text": "handleMethod[ \"prompts/list\"  , msg_, req_ ] := <| req, \"result\" -> <| \"prompts\" -> $promptList |> |>;"
+          },
+          {
+            "line": 428,
+            "text": "handleMethod[ \"prompts/get\"   , msg_, req_ ] := <| req, \"result\" -> getPrompt[ msg, req ] |>;"
+          },
+          {
+            "line": 429,
+            "text": "handleMethod[ \"tools/list\"    , msg_, req_ ] := <| req, \"result\" -> <| \"tools\" -> withToolUIMetadata @ $toolList |> |>;"
+          },
+          {
+            "line": 430,
+            "text": "handleMethod[ \"tools/call\"    , msg_, req_ ] := <| req, \"result\" -> evaluateTool[ msg, req ] |>;"
+          },
+          {
+            "line": 431,
+            "text": ""
+          },
+          {
+            "line": 432,
+            "text": "(* Notifications: dispatch to handleNotification, then drop the response *)"
+          },
+          {
+            "line": 433,
+            "text": "handleMethod[ method_String, msg_, req_ ] /; StringStartsQ[ method, \"notifications/\" ] := ("
+          },
+          {
+            "line": 434,
+            "text": "    handleNotification[ method, msg ];"
+          },
+          {
+            "line": 435,
+            "text": "    Null"
+          },
+          {
+            "line": 436,
+            "text": ");"
+          }
+        ]
+      },
+      {
+        "start": 755,
+        "end": 778,
+        "lines": [
+          {
+            "line": 755,
+            "text": "(*evaluateTool*)"
+          },
+          {
+            "line": 756,
+            "text": "evaluateTool // beginDefinition;"
+          },
+          {
+            "line": 757,
+            "text": ""
+          },
+          {
+            "line": 758,
+            "text": "evaluateTool[ msg_, req_ ] := Enclose["
+          },
+          {
+            "line": 759,
+            "text": "    Catch @ Module[ { params, toolName, args, tool, result, content, toolResultAssoc },"
+          },
+          {
+            "line": 760,
+            "text": "        Quiet @ TaskRemove @ $warmupTask; (* We're in a tool call, so it no longer makes sense to warm up tools *)"
+          },
+          {
+            "line": 761,
+            "text": "        writeLog[ \"ToolCall\" -> msg ];"
+          },
+          {
+            "line": 762,
+            "text": "        params = ConfirmBy[ Lookup[ msg, \"params\", <| |> ], AssociationQ ];"
+          },
+          {
+            "line": 763,
+            "text": "        toolName = ConfirmBy[ Lookup[ params, \"name\" ], StringQ ];"
+          },
+          {
+            "line": 764,
+            "text": "        args = Lookup[ params, \"arguments\", <| |> ];"
+          },
+          {
+            "line": 765,
+            "text": ""
+          },
+          {
+            "line": 766,
+            "text": "        (* Check if the tool exists before calling it *)"
+          },
+          {
+            "line": 767,
+            "text": "        tool = Lookup[ $llmTools, toolName, Missing[ \"UnknownTool\", toolName ] ];"
+          },
+          {
+            "line": 768,
+            "text": "        If[ MissingQ @ tool,"
+          },
+          {
+            "line": 769,
+            "text": "            Throw @ <|"
+          },
+          {
+            "line": 770,
+            "text": "                \"content\" -> { <| \"type\" -> \"text\", \"text\" -> \"[Error] Unknown tool: \" <> toolName |> },"
+          },
+          {
+            "line": 771,
+            "text": "                \"isError\" -> True"
+          },
+          {
+            "line": 772,
+            "text": "            |>"
+          },
+          {
+            "line": 773,
+            "text": "        ];"
+          },
+          {
+            "line": 774,
+            "text": ""
+          },
+          {
+            "line": 775,
+            "text": "        result = stealthCatchTop @ tool @ args;"
+          },
+          {
+            "line": 776,
+            "text": ""
+          },
+          {
+            "line": 777,
+            "text": "        content = Which["
+          },
+          {
+            "line": 778,
+            "text": "            (* Structured result with Content key (from WolframLanguageEvaluator) *)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__AgentTools-2.2.0\\Kernel\\Server\\Local.wl",
+    "sha256": "0fb7b1e57fbfdfb4c76329f0a386c3e10165c094f79558e18d34b310a8a393a7",
+    "excerpts": [
+      {
+        "start": 37,
+        "end": 103,
+        "lines": [
+          {
+            "line": 37,
+            "text": "    throwFailure[ \"InvalidSession\" ];"
+          },
+          {
+            "line": 38,
+            "text": ""
+          },
+          {
+            "line": 39,
+            "text": "(* :!CodeAnalysis::BeginBlock:: *)"
+          },
+          {
+            "line": 40,
+            "text": "(* :!CodeAnalysis::Disable::SuspiciousSessionSymbol:: *)"
+          },
+          {
+            "line": 41,
+            "text": "startMCPServer[ obj0_MCPServerObject ] := Enclose["
+          },
+          {
+            "line": 42,
+            "text": "    Block[ { $currentMCPServer = obj0, $mcpEvaluation = True },"
+          },
+          {
+            "line": 43,
+            "text": "        superQuiet @ Module[ { logFile, state, response, output },"
+          },
+          {
+            "line": 44,
+            "text": ""
+          },
+          {
+            "line": 45,
+            "text": "        SetOptions[ First @ Streams[ \"stdout\" ], CharacterEncoding -> \"UTF-8\" ];"
+          },
+          {
+            "line": 46,
+            "text": "        SetOptions[ First @ Streams[ \"stderr\" ], CharacterEncoding -> \"UTF-8\" ];"
+          },
+          {
+            "line": 47,
+            "text": ""
+          },
+          {
+            "line": 48,
+            "text": "        (* Apply any cloud base override before anything uses the cloud: *)"
+          },
+          {
+            "line": 49,
+            "text": "        setCloudBaseFromEnvironment[ ];"
+          },
+          {
+            "line": 50,
+            "text": ""
+          },
+          {
+            "line": 51,
+            "text": "        cleanupOldOutputLogs[ ];"
+          },
+          {
+            "line": 52,
+            "text": ""
+          },
+          {
+            "line": 53,
+            "text": "        logFile = ConfirmBy[ ensureFilePath @ mcpServerLogFile @ obj0, fileQ, \"LogFile\" ];"
+          },
+          {
+            "line": 54,
+            "text": "        If[ FileExistsQ @ logFile, DeleteFile @ logFile ];"
+          },
+          {
+            "line": 55,
+            "text": "        writeLog[ \"LogFile\" -> logFile ];"
+          },
+          {
+            "line": 56,
+            "text": ""
+          },
+          {
+            "line": 57,
+            "text": "        (* Build the transport-agnostic tool/prompt state (paclet resolution, tool/prompt"
+          },
+          {
+            "line": 58,
+            "text": "           tables, UI resources, tool options); $currentMCPServer may be reassigned within. *)"
+          },
+          {
+            "line": 59,
+            "text": "        state = ConfirmBy[ initializeServerState @ obj0, AssociationQ, \"InitializeServerState\" ];"
+          },
+          {
+            "line": 60,
+            "text": ""
+          },
+          {
+            "line": 61,
+            "text": "        Block["
+          },
+          {
+            "line": 62,
+            "text": "            {"
+          },
+          {
+            "line": 63,
+            "text": "                $toolList     = state[ \"ToolList\" ],"
+          },
+          {
+            "line": 64,
+            "text": "                $llmTools     = state[ \"LLMTools\" ],"
+          },
+          {
+            "line": 65,
+            "text": "                $promptList   = state[ \"PromptList\" ],"
+          },
+          {
+            "line": 66,
+            "text": "                $promptLookup = state[ \"PromptLookup\" ],"
+          },
+          {
+            "line": 67,
+            "text": "                $logFile      = logFile,"
+          },
+          {
+            "line": 68,
+            "text": "                $toolOptions  = state[ \"ToolOptions\" ]"
+          },
+          {
+            "line": 69,
+            "text": "            },"
+          },
+          {
+            "line": 70,
+            "text": "            While[ True,"
+          },
+          {
+            "line": 71,
+            "text": "                If["
+          },
+          {
+            "line": 72,
+            "text": "                    And["
+          },
+          {
+            "line": 73,
+            "text": "                        Or[ $OperatingSystem === \"MacOSX\", $OperatingSystem === \"Unix\" ],"
+          },
+          {
+            "line": 74,
+            "text": "                        $ParentProcessID === 1"
+          },
+          {
+            "line": 75,
+            "text": "                    ],"
+          },
+          {
+            "line": 76,
+            "text": "                    Exit[0]"
+          },
+          {
+            "line": 77,
+            "text": "                ];"
+          },
+          {
+            "line": 78,
+            "text": "                response = catchAlways @ processRequest[ ];"
+          },
+          {
+            "line": 79,
+            "text": "                If[ response =!= EndOfFile, writeLog[ \"Response\" -> response ] ];"
+          },
+          {
+            "line": 80,
+            "text": "                If[ AssociationQ @ response,"
+          },
+          {
+            "line": 81,
+            "text": "                    output = ConfirmBy["
+          },
+          {
+            "line": 82,
+            "text": "                        Developer`WriteRawJSONString[ sanitizeResponse @ response, \"Compact\" -> True ],"
+          },
+          {
+            "line": 83,
+            "text": "                        StringQ,"
+          },
+          {
+            "line": 84,
+            "text": "                        \"WriteRawJSONString\""
+          },
+          {
+            "line": 85,
+            "text": "                    ];"
+          },
+          {
+            "line": 86,
+            "text": "                    WriteLine[ \"stdout\", output ];"
+          },
+          {
+            "line": 87,
+            "text": "                    If[ TrueQ @ $warmupTools, toolWarmup @ $toolList ],"
+          },
+          {
+            "line": 88,
+            "text": "                    Pause[ 0.1 ]"
+          },
+          {
+            "line": 89,
+            "text": "                ]"
+          },
+          {
+            "line": 90,
+            "text": "            ]"
+          },
+          {
+            "line": 91,
+            "text": "        ]"
+          },
+          {
+            "line": 92,
+            "text": "    ]"
+          },
+          {
+            "line": 93,
+            "text": "    ],"
+          },
+          {
+            "line": 94,
+            "text": "    throwInternalFailure"
+          },
+          {
+            "line": 95,
+            "text": "];"
+          },
+          {
+            "line": 96,
+            "text": "(* :!CodeAnalysis::EndBlock:: *)"
+          },
+          {
+            "line": 97,
+            "text": ""
+          },
+          {
+            "line": 98,
+            "text": "startMCPServer // endDefinition;"
+          },
+          {
+            "line": 99,
+            "text": ""
+          },
+          {
+            "line": 100,
+            "text": "(* ::**************************************************************************************************************:: *)"
+          },
+          {
+            "line": 101,
+            "text": "(* ::Subsubsection::Closed:: *)"
+          },
+          {
+            "line": 102,
+            "text": "(*setCloudBaseFromEnvironment*)"
+          },
+          {
+            "line": 103,
+            "text": "(* Overrides the default cloud base for the server session when the WOLFRAM_CLOUDBASE environment"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__AgentTools-2.2.0\\Kernel\\SupportedClients.wl",
+    "sha256": "0fb284186187ef7a067d299ff3410f0e431a4e489554c9daf02e2b7b05630cf2",
+    "excerpts": [
+      {
+        "start": 429,
+        "end": 442,
+        "lines": [
+          {
+            "line": 429,
+            "text": "(*convertToClineFormat*)"
+          },
+          {
+            "line": 430,
+            "text": "convertToClineFormat // beginDefinition;"
+          },
+          {
+            "line": 431,
+            "text": ""
+          },
+          {
+            "line": 432,
+            "text": "convertToClineFormat[ server_Association ] := Enclose["
+          },
+          {
+            "line": 433,
+            "text": "    Module[ { result },"
+          },
+          {
+            "line": 434,
+            "text": "        result = ConfirmBy[ server, AssociationQ, \"Server\" ];"
+          },
+          {
+            "line": 435,
+            "text": "        result[ \"disabled\" ] = False;"
+          },
+          {
+            "line": 436,
+            "text": "        result[ \"autoApprove\" ] = { };"
+          },
+          {
+            "line": 437,
+            "text": "        result"
+          },
+          {
+            "line": 438,
+            "text": "    ],"
+          },
+          {
+            "line": 439,
+            "text": "    throwInternalFailure"
+          },
+          {
+            "line": 440,
+            "text": "];"
+          },
+          {
+            "line": 441,
+            "text": ""
+          },
+          {
+            "line": 442,
+            "text": "convertToClineFormat // endDefinition;"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__AgentTools-2.2.0\\Kernel\\MCPServerObject.wl",
+    "sha256": "7fc1b2a1c28770ef60657b7c7b068d06870ec1af7c770ec4f4a2882222ca004c",
+    "excerpts": [
+      {
+        "start": 14,
+        "end": 21,
+        "lines": [
+          {
+            "line": 14,
+            "text": "(*Argument Patterns*)"
+          },
+          {
+            "line": 15,
+            "text": "$defaultCommandLineArguments = {"
+          },
+          {
+            "line": 16,
+            "text": "    \"-run\","
+          },
+          {
+            "line": 17,
+            "text": "    \"PacletSymbol[\\\"Wolfram/AgentTools\\\",\\\"Wolfram`AgentTools`StartMCPServer\\\"][]\","
+          },
+          {
+            "line": 18,
+            "text": "    \"-noinit\","
+          },
+          {
+            "line": 19,
+            "text": "    \"-noprompt\""
+          },
+          {
+            "line": 20,
+            "text": "};"
+          },
+          {
+            "line": 21,
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__AgentTools-2.2.0\\Kernel\\DefaultServers.wl",
+    "sha256": "542be5037c9d0acef281baf0f07326def88ae04e7ad6e9c8d2b3777545b8decf",
+    "excerpts": [
+      {
+        "start": 30,
+        "end": 48,
+        "lines": [
+          {
+            "line": 30,
+            "text": "(*Wolfram*)"
+          },
+          {
+            "line": 31,
+            "text": "$defaultMCPServers[ \"Wolfram\" ] := <|"
+          },
+          {
+            "line": 32,
+            "text": "    \"Name\"          -> \"Wolfram\","
+          },
+          {
+            "line": 33,
+            "text": "    \"MCPServerName\" -> \"Wolfram\","
+          },
+          {
+            "line": 34,
+            "text": "    \"Location\"      -> \"BuiltIn\","
+          },
+          {
+            "line": 35,
+            "text": "    \"Transport\"     -> \"StandardInputOutput\","
+          },
+          {
+            "line": 36,
+            "text": "    \"ServerVersion\" -> $pacletVersion,"
+          },
+          {
+            "line": 37,
+            "text": "    \"ObjectVersion\" -> $objectVersion,"
+          },
+          {
+            "line": 38,
+            "text": "    \"LLMEvaluator\"  -> <|"
+          },
+          {
+            "line": 39,
+            "text": "        \"Tools\" -> {"
+          },
+          {
+            "line": 40,
+            "text": "            \"WolframContext\","
+          },
+          {
+            "line": 41,
+            "text": "            \"WolframLanguageEvaluator\","
+          },
+          {
+            "line": 42,
+            "text": "            \"WolframAlpha\""
+          },
+          {
+            "line": 43,
+            "text": "        },"
+          },
+          {
+            "line": 44,
+            "text": "        \"MCPPrompts\" -> { \"WolframSearch\" }"
+          },
+          {
+            "line": 45,
+            "text": "    |>"
+          },
+          {
+            "line": 46,
+            "text": "|>;"
+          },
+          {
+            "line": 47,
+            "text": ""
+          },
+          {
+            "line": 48,
+            "text": "(* ::**************************************************************************************************************:: *)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__AgentTools-2.2.0\\Documentation\\English\\ReferencePages\\Symbols\\InstallMCPServer.nb",
+    "sha256": "63fd3bbd4c2a86b9b52396417e93cc37b338c400e311ebb52569bb3c06227c73",
+    "excerpts": [
+      {
+        "start": 18737,
+        "end": 18766,
+        "lines": [
+          {
+            "line": 18737,
+            "text": ""
+          },
+          {
+            "line": 18738,
+            "text": "Cell[TextData[{"
+          },
+          {
+            "line": 18739,
+            "text": " \"Use a separate sandboxed local kernel for the \","
+          },
+          {
+            "line": 18740,
+            "text": " Cell[BoxData[\"WolframLanguageEvaluatorTool\"], \"InlineFormula\","
+          },
+          {
+            "line": 18741,
+            "text": "  FontFamily->\"Source Sans Pro\",ExpressionUUID->"
+          },
+          {
+            "line": 18742,
+            "text": "  \"e49d978f-d2d2-414a-a6aa-21d277a027ff\"],"
+          },
+          {
+            "line": 18743,
+            "text": " \":\""
+          },
+          {
+            "line": 18744,
+            "text": "}], \"ExampleText\","
+          },
+          {
+            "line": 18745,
+            "text": " CellID->35526031,ExpressionUUID->\"befb8a52-013c-4272-aedc-d89f915275c2\"],"
+          },
+          {
+            "line": 18746,
+            "text": ""
+          },
+          {
+            "line": 18747,
+            "text": "Cell[CellGroupData[{"
+          },
+          {
+            "line": 18748,
+            "text": ""
+          },
+          {
+            "line": 18749,
+            "text": "Cell[BoxData["
+          },
+          {
+            "line": 18750,
+            "text": " RowBox[{\"InstallMCPServer\", \"[\", "
+          },
+          {
+            "line": 18751,
+            "text": "  RowBox[{\"\\\"\\<Claude\\>\\\"\", \",\", \"\\\"\\<Wolfram\\>\\\"\", \",\", "
+          },
+          {
+            "line": 18752,
+            "text": "   RowBox[{\"\\\"\\<ToolOptions\\>\\\"\", \"->\", "
+          },
+          {
+            "line": 18753,
+            "text": "    RowBox[{\"<|\", "
+          },
+          {
+            "line": 18754,
+            "text": "     RowBox[{\"\\\"\\<WolframLanguageEvaluator\\>\\\"\", \"->\", "
+          },
+          {
+            "line": 18755,
+            "text": "      RowBox[{\"<|\", "
+          },
+          {
+            "line": 18756,
+            "text": "       RowBox[{\"\\\"\\<Method\\>\\\"\", \"->\", \"\\\"\\<Local\\>\\\"\"}], \"|>\"}]}], "
+          },
+          {
+            "line": 18757,
+            "text": "     \"|>\"}]}]}], \"]\"}]], \"Input\","
+          },
+          {
+            "line": 18758,
+            "text": " CellProlog:>Needs[\"Wolfram`AgentTools`\"],"
+          },
+          {
+            "line": 18759,
+            "text": " CellLabel->\"In[1]:=\","
+          },
+          {
+            "line": 18760,
+            "text": " CellID->92147123,ExpressionUUID->\"6236ea61-99e6-4fd8-8e1a-db8d2d5b72d6\"],"
+          },
+          {
+            "line": 18761,
+            "text": ""
+          },
+          {
+            "line": 18762,
+            "text": "Cell[BoxData["
+          },
+          {
+            "line": 18763,
+            "text": " InterpretationBox["
+          },
+          {
+            "line": 18764,
+            "text": "  RowBox[{"
+          },
+          {
+            "line": 18765,
+            "text": "   TagBox[\"Success\","
+          },
+          {
+            "line": 18766,
+            "text": "    \"SummaryHead\"], \"[\", "
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__Chatbook-2.7.0\\Source\\Chatbook\\Sandbox.wl",
+    "sha256": "9c0feab60b13a7d9d22ff71aefeff71f78c2dbdb2e526b216ea80d81ad99b3f8",
+    "excerpts": [
+      {
+        "start": 525,
+        "end": 553,
+        "lines": [
+          {
+            "line": 525,
+            "text": "startSandboxKernel[ ] := Enclose["
+          },
+          {
+            "line": 526,
+            "text": "    Module[ { kernel, readPaths, writePaths, executePaths, pid },"
+          },
+          {
+            "line": 527,
+            "text": ""
+          },
+          {
+            "line": 528,
+            "text": "        Scan[ LinkClose, Select[ Links[ ], sandboxKernelQ ] ];"
+          },
+          {
+            "line": 529,
+            "text": ""
+          },
+          {
+            "line": 530,
+            "text": "        kernel = ConfirmMatch[ LinkLaunch @ $sandboxKernelCommandLine, _LinkObject, \"LinkLaunch\" ];"
+          },
+          {
+            "line": 531,
+            "text": ""
+          },
+          {
+            "line": 532,
+            "text": "        readPaths = makeReadPaths @ $readPaths;"
+          },
+          {
+            "line": 533,
+            "text": "        writePaths = makeWritePaths @ $writePaths;"
+          },
+          {
+            "line": 534,
+            "text": "        executePaths = makeExecutePaths @ $executePaths;"
+          },
+          {
+            "line": 535,
+            "text": ""
+          },
+          {
+            "line": 536,
+            "text": "        (* Use StartProtectedMode instead of passing the -sandbox argument, since we need to initialize the FE first *)"
+          },
+          {
+            "line": 537,
+            "text": "        With[ { read = readPaths, write = writePaths, execute = executePaths },"
+          },
+          {
+            "line": 538,
+            "text": "            LinkWrite["
+          },
+          {
+            "line": 539,
+            "text": "                kernel,"
+          },
+          {
+            "line": 540,
+            "text": "                Unevaluated @ EvaluatePacket["
+          },
+          {
+            "line": 541,
+            "text": "                    UsingFrontEnd @ Null;"
+          },
+          {
+            "line": 542,
+            "text": "                    SetOptions[ First @ Streams[ \"stdout\" ], PageWidth -> Infinity ];"
+          },
+          {
+            "line": 543,
+            "text": "                    Developer`StartProtectedMode["
+          },
+          {
+            "line": 544,
+            "text": "                        \"Read\"                -> read,"
+          },
+          {
+            "line": 545,
+            "text": "                        \"Write\"               -> write,"
+          },
+          {
+            "line": 546,
+            "text": "                        \"Execute\"             -> execute,"
+          },
+          {
+            "line": 547,
+            "text": "                        \"ResolveAllowedPaths\" -> False (* Skip checking for existence of files for faster startup *)"
+          },
+          {
+            "line": 548,
+            "text": "                    ]"
+          },
+          {
+            "line": 549,
+            "text": "                ]"
+          },
+          {
+            "line": 550,
+            "text": "            ]"
+          },
+          {
+            "line": 551,
+            "text": "        ];"
+          },
+          {
+            "line": 552,
+            "text": ""
+          },
+          {
+            "line": 553,
+            "text": "        pid = pingSandboxKernel @ kernel;"
+          }
+        ]
+      },
+      {
+        "start": 592,
+        "end": 638,
+        "lines": [
+          {
+            "line": 592,
+            "text": "$defaultReadPaths := $defaultReadPaths = Select["
+          },
+          {
+            "line": 593,
+            "text": "    {"
+          },
+          {
+            "line": 594,
+            "text": "        $InstallationDirectory,"
+          },
+          {
+            "line": 595,
+            "text": "        $TemporaryDirectory,"
+          },
+          {
+            "line": 596,
+            "text": "        FileNameJoin @ { $BaseDirectory, \"Paclets\" },"
+          },
+          {
+            "line": 597,
+            "text": "        FileNameJoin @ { $BaseDirectory, \"Autoload\", \"PacletManager\" },"
+          },
+          {
+            "line": 598,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"Paclets\" },"
+          },
+          {
+            "line": 599,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"Autoload\", \"PacletManager\" },"
+          },
+          {
+            "line": 600,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"ApplicationData\" },"
+          },
+          {
+            "line": 601,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"Knowledgebase\" },"
+          },
+          {
+            "line": 602,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"Logs\" },"
+          },
+          {
+            "line": 603,
+            "text": "        SystemInformation[ \"FrontEnd\", \"DocumentationInformation\" ][ \"Directory\" ],"
+          },
+          {
+            "line": 604,
+            "text": "        ExpandFileName @ URL @ $LocalBase"
+          },
+          {
+            "line": 605,
+            "text": "    },"
+          },
+          {
+            "line": 606,
+            "text": "    StringQ"
+          },
+          {
+            "line": 607,
+            "text": "];"
+          },
+          {
+            "line": 608,
+            "text": ""
+          },
+          {
+            "line": 609,
+            "text": "(* ::**************************************************************************************************************:: *)"
+          },
+          {
+            "line": 610,
+            "text": "(* ::Subsubsection::Closed:: *)"
+          },
+          {
+            "line": 611,
+            "text": "(*makeWritePaths*)"
+          },
+          {
+            "line": 612,
+            "text": "makeWritePaths // beginDefinition;"
+          },
+          {
+            "line": 613,
+            "text": "makeWritePaths[ spec_ ] := replaceAutoPath[ makePaths @ spec, $defaultWritePaths, \"AllowedWritePaths\" ];"
+          },
+          {
+            "line": 614,
+            "text": "makeWritePaths // endDefinition;"
+          },
+          {
+            "line": 615,
+            "text": ""
+          },
+          {
+            "line": 616,
+            "text": "$defaultWritePaths := $defaultWritePaths = Select["
+          },
+          {
+            "line": 617,
+            "text": "    {"
+          },
+          {
+            "line": 618,
+            "text": "        $TemporaryDirectory,"
+          },
+          {
+            "line": 619,
+            "text": "        FileNameJoin @ { $BaseDirectory, \"Paclets\" },"
+          },
+          {
+            "line": 620,
+            "text": "        FileNameJoin @ { $BaseDirectory, \"Autoload\", \"PacletManager\" },"
+          },
+          {
+            "line": 621,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"Paclets\" },"
+          },
+          {
+            "line": 622,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"Autoload\", \"PacletManager\" },"
+          },
+          {
+            "line": 623,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"ApplicationData\", \"CloudObject\", \"Authentication\" },"
+          },
+          {
+            "line": 624,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"ApplicationData\", \"Parallel\", \"Preferences\" },"
+          },
+          {
+            "line": 625,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"ApplicationData\", \"Credentials\" },"
+          },
+          {
+            "line": 626,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"ApplicationData\", \"Astro\" },"
+          },
+          {
+            "line": 627,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"ApplicationData\", \"Wolfram\", \"AgentTools\" },"
+          },
+          {
+            "line": 628,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"Knowledgebase\" },"
+          },
+          {
+            "line": 629,
+            "text": "        FileNameJoin @ { $UserBaseDirectory, \"Logs\" },"
+          },
+          {
+            "line": 630,
+            "text": "        FileNameJoin @ { ExpandFileName @ URL @ $LocalBase, \"Resources\" }"
+          },
+          {
+            "line": 631,
+            "text": "    },"
+          },
+          {
+            "line": 632,
+            "text": "    StringQ"
+          },
+          {
+            "line": 633,
+            "text": "];"
+          },
+          {
+            "line": 634,
+            "text": ""
+          },
+          {
+            "line": 635,
+            "text": "(* ::**************************************************************************************************************:: *)"
+          },
+          {
+            "line": 636,
+            "text": "(* ::Subsubsection::Closed:: *)"
+          },
+          {
+            "line": 637,
+            "text": "(*makeExecutePaths*)"
+          },
+          {
+            "line": 638,
+            "text": "makeExecutePaths // beginDefinition;"
+          }
+        ]
+      },
+      {
+        "start": 987,
+        "end": 1000,
+        "lines": [
+          {
+            "line": 987,
+            "text": ""
+          },
+          {
+            "line": 988,
+            "text": "sandboxEvaluate0[ KeyValuePattern[ \"code\" -> code_ ] ] := sandboxEvaluate0 @ code;"
+          },
+          {
+            "line": 989,
+            "text": "sandboxEvaluate0[ code_String ] := sandboxEvaluate0 @ toSandboxExpression @ code // LogChatTiming[ \"SandboxEvaluate\" ];"
+          },
+          {
+            "line": 990,
+            "text": "sandboxEvaluate0[ HoldComplete[ xs__, x_ ] ] := sandboxEvaluate0 @ HoldComplete @ CompoundExpression[ xs, x ];"
+          },
+          {
+            "line": 991,
+            "text": "sandboxEvaluate0[ HoldComplete[ eval_ ] ] /; useCloudSandboxQ[ ] := cloudSandboxEvaluate @ HoldComplete @ eval;"
+          },
+          {
+            "line": 992,
+            "text": "sandboxEvaluate0[ HoldComplete[ eval_ ] ] /; useSessionQ[ ] := sessionEvaluate @ HoldComplete @ eval;"
+          },
+          {
+            "line": 993,
+            "text": ""
+          },
+          {
+            "line": 994,
+            "text": "sandboxEvaluate0[ HoldComplete[ evaluation_ ] ] := Enclose["
+          },
+          {
+            "line": 995,
+            "text": "    Module[ { kernel, null, packets, $sandboxTag, $timedOut, $kernelQuit, results, flat, initialized, final },"
+          },
+          {
+            "line": 996,
+            "text": ""
+          },
+          {
+            "line": 997,
+            "text": "        $lastSandboxMethod = \"Local\";"
+          },
+          {
+            "line": 998,
+            "text": "        $lastSandboxEvaluation = HoldComplete @ evaluation;"
+          },
+          {
+            "line": 999,
+            "text": "        kernel = ConfirmMatch[ getSandboxKernel[ ], _LinkObject, \"GetKernel\" ];"
+          },
+          {
+            "line": 1000,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "start": 1304,
+        "end": 1332,
+        "lines": [
+          {
+            "line": 1304,
+            "text": ""
+          },
+          {
+            "line": 1305,
+            "text": "sessionEvaluate[ HoldComplete[ eval0_ ] ] := Enclose["
+          },
+          {
+            "line": 1306,
+            "text": "    Module[ { response, eval, result, packets, initialized },"
+          },
+          {
+            "line": 1307,
+            "text": ""
+          },
+          {
+            "line": 1308,
+            "text": "        $lastSandboxMethod = \"Session\";"
+          },
+          {
+            "line": 1309,
+            "text": "        $lastSandboxEvaluation = HoldComplete @ eval0;"
+          },
+          {
+            "line": 1310,
+            "text": ""
+          },
+          {
+            "line": 1311,
+            "text": "        response = $Failed;"
+          },
+          {
+            "line": 1312,
+            "text": "        eval = makeLinkWriteEvaluation @ eval0;"
+          },
+          {
+            "line": 1313,
+            "text": ""
+          },
+          {
+            "line": 1314,
+            "text": "        With[ { held = eval, tc = $sandboxEvaluationTimeout },"
+          },
+          {
+            "line": 1315,
+            "text": "            response = evaluationData["
+          },
+          {
+            "line": 1316,
+            "text": "                HoldComplete @@ {"
+          },
+          {
+            "line": 1317,
+            "text": "                    TimeConstrained["
+          },
+          {
+            "line": 1318,
+            "text": "                        ReleaseHold @ held,"
+          },
+          {
+            "line": 1319,
+            "text": "                        tc,"
+          },
+          {
+            "line": 1320,
+            "text": "                        Failure["
+          },
+          {
+            "line": 1321,
+            "text": "                            \"EvaluationTimeExceeded\","
+          },
+          {
+            "line": 1322,
+            "text": "                            <|"
+          },
+          {
+            "line": 1323,
+            "text": "                                \"MessageTemplate\"   -> \"Evaluation exceeded the `1` second time limit.\","
+          },
+          {
+            "line": 1324,
+            "text": "                                \"MessageParameters\" -> { tc }"
+          },
+          {
+            "line": 1325,
+            "text": "                            |>"
+          },
+          {
+            "line": 1326,
+            "text": "                        ]"
+          },
+          {
+            "line": 1327,
+            "text": "                    ]"
+          },
+          {
+            "line": 1328,
+            "text": "                }"
+          },
+          {
+            "line": 1329,
+            "text": "            ]"
+          },
+          {
+            "line": 1330,
+            "text": "        ];"
+          },
+          {
+            "line": 1331,
+            "text": ""
+          },
+          {
+            "line": 1332,
+            "text": "        If[ $WorkspaceChat, NotebookDelete @ Cells[ $evaluationNotebook, CellStyle -> \"PrintTemporary\" ] ];"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "C:\\Program Files\\Wolfram Research\\Wolfram\\15.0\\SystemFiles\\Components\\LLMFunctions\\Kernel\\Chat.wl",
+    "sha256": "5fb9f9534d1a292ed04d765f16982265183194c4ff314f5d823d4170fb391776",
+    "excerpts": [
+      {
+        "start": 891,
+        "end": 910,
+        "lines": [
+          {
+            "line": 891,
+            "text": "];"
+          },
+          {
+            "line": 892,
+            "text": ""
+          },
+          {
+            "line": 893,
+            "text": "generateToolMessage[requests_, config_] := GeneralUtilities`Scope @ Enclose["
+          },
+          {
+            "line": 894,
+            "text": "\t(* adds a dedicated tool response message *)"
+          },
+          {
+            "line": 895,
+            "text": "\tresponse = Wolfram`LLMFunctions`Tools`PromptToolUtilities`Prompt2Msg[{}, config, \"Role\" -> \"Tool\"];"
+          },
+          {
+            "line": 896,
+            "text": "\tresponse[\"ToolResponses\"] = Map["
+          },
+          {
+            "line": 897,
+            "text": "\t\t(* We are sending the failure back to the API to let it know about the wrong request *)"
+          },
+          {
+            "line": 898,
+            "text": "\t\t(* TODO: possibly send more explanations about why it failed *)"
+          },
+          {
+            "line": 899,
+            "text": "\t\tIf[FailureQ[#],"
+          },
+          {
+            "line": 900,
+            "text": "\t\t\t#"
+          },
+          {
+            "line": 901,
+            "text": "\t\t\t,"
+          },
+          {
+            "line": 902,
+            "text": "\t\t\t$progressDetails ^= TemplateApply[$ProgressMessages[\"detail:tool\"], #[\"Name\"]];"
+          },
+          {
+            "line": 903,
+            "text": "\t\t\tGenerateLLMToolResponse[config, #]"
+          },
+          {
+            "line": 904,
+            "text": "\t\t]&"
+          },
+          {
+            "line": 905,
+            "text": "\t\t,"
+          },
+          {
+            "line": 906,
+            "text": "\t\trequests"
+          },
+          {
+            "line": 907,
+            "text": "\t];"
+          },
+          {
+            "line": 908,
+            "text": "\tresponse"
+          },
+          {
+            "line": 909,
+            "text": "]"
+          },
+          {
+            "line": 910,
+            "text": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "C:\\Program Files\\Wolfram Research\\Wolfram\\15.0\\SystemFiles\\Components\\LLMFunctions\\Kernel\\Tools\\LLMToolResponse.wl",
+    "sha256": "122b8c329a33983d2d4af4fab1fd4c28b1dbda218ea56a3c395560d5480f2248",
+    "excerpts": [
+      {
+        "start": 140,
+        "end": 166,
+        "lines": [
+          {
+            "line": 140,
+            "text": "iiGenerateLLMToolResponse[{tool_LLMTool, req_LLMToolRequest}, opts_] :="
+          },
+          {
+            "line": 141,
+            "text": "\tEnclose["
+          },
+          {
+            "line": 142,
+            "text": "\t\tModule["
+          },
+          {
+            "line": 143,
+            "text": "\t\t\t{interpParamVals, output, args, fun, str}"
+          },
+          {
+            "line": 144,
+            "text": "\t\t\t,"
+          },
+          {
+            "line": 145,
+            "text": ""
+          },
+          {
+            "line": 146,
+            "text": "\t\t\tIf[Information[tool, \"Name\"] =!= req[\"Name\"],"
+          },
+          {
+            "line": 147,
+            "text": "\t\t\t\tReturn @ Failure["
+          },
+          {
+            "line": 148,
+            "text": "\t\t\t\t\t\"InvalidLLMToolRequestName\","
+          },
+          {
+            "line": 149,
+            "text": "\t\t\t\t\t<|"
+          },
+          {
+            "line": 150,
+            "text": "\t\t\t\t\t\t\"MessageTemplate\" -> \"Request name `` does not match provided tool name ``.\","
+          },
+          {
+            "line": 151,
+            "text": "\t\t\t\t\t\t\"MessageParameters\" -> {req[\"Name\"], Information[tool, \"Name\"]},"
+          },
+          {
+            "line": 152,
+            "text": "\t\t\t\t\t\t\"Request\" -> req,"
+          },
+          {
+            "line": 153,
+            "text": "\t\t\t\t\t\t\"RequestID\" -> req[\"RequestID\"],"
+          },
+          {
+            "line": 154,
+            "text": "\t\t\t\t\t\t\"LLMTool\" -> tool"
+          },
+          {
+            "line": 155,
+            "text": "\t\t\t\t\t|>"
+          },
+          {
+            "line": 156,
+            "text": "\t\t\t\t]"
+          },
+          {
+            "line": 157,
+            "text": "\t\t\t];"
+          },
+          {
+            "line": 158,
+            "text": ""
+          },
+          {
+            "line": 159,
+            "text": "\t\t\tinterpParamVals = Confirm @ interpretToolParams[tool, req];"
+          },
+          {
+            "line": 160,
+            "text": ""
+          },
+          {
+            "line": 161,
+            "text": "\t\t\toutput = Information[tool,\"Function\"][interpParamVals];"
+          },
+          {
+            "line": 162,
+            "text": ""
+          },
+          {
+            "line": 163,
+            "text": "\t\t\targs = <|"
+          },
+          {
+            "line": 164,
+            "text": "\t\t\t\t\"Request\" -> req,"
+          },
+          {
+            "line": 165,
+            "text": "\t\t\t\t\"Tool\" -> tool,"
+          },
+          {
+            "line": 166,
+            "text": "\t\t\t\t\"InterpretedParameterValues\" -> interpParamVals,"
+          }
+        ]
+      }
+    ]
+  }
+]

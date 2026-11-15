@@ -1,0 +1,305 @@
+[
+  {
+    "timestamp": "2026-11-09T23:00:20.475470+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "initialize",
+      "params": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {},
+        "clientInfo": {
+          "name": "wolframguard-gap-tests",
+          "version": "1"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:00:31.390942+00:00",
+    "direction": "server->client",
+    "non_json": "WolframGuard installed with policy ReadOnly\r\n"
+  },
+  {
+    "timestamp": "2026-11-09T23:00:56.688070+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {
+          "prompts": {},
+          "tools": {
+            "listChanged": true
+          }
+        },
+        "serverInfo": {
+          "name": "WolframLanguage",
+          "version": "2.2.0"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:00:56.693332+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "method": "notifications/initialized"
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:00:56.697863+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-gap-001\\\\readonly\\\\fixture\\\\customers.sqlite\"]], r}, r = DatabaseLink`SQLExecute[c, \"SELECT COUNT(*) FROM customers WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:14.203225+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= {{250}}"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"zfc8xGR9\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:14.227977+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-gap-001\\\\readonly\\\\fixture\\\\customers.sqlite\"]], r}, r = DatabaseLink`SQLExecute[c, \"DELETE FROM customers WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:14.547755+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[WolframGuard] Blocked by WolframGuard (ReadOnly policy). No code was evaluated.\nDetected effects: DatabaseMutation\nBlocked under ReadOnly policy: effect(s) DatabaseMutation.\nIf this effect is genuinely required, the user must relaunch with a policy that permits it."
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"Hp3bURSh\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:14.564957+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-gap-001\\\\readonly\\\\fixture\\\\customers.sqlite\"]], r}, r = DatabaseLink`SQLExecute[c, \"UPDATE customers SET status='active' WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:14.897861+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[WolframGuard] Blocked by WolframGuard (ReadOnly policy). No code was evaluated.\nDetected effects: DatabaseMutation\nBlocked under ReadOnly policy: effect(s) DatabaseMutation.\nIf this effect is genuinely required, the user must relaunch with a policy that permits it."
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"nWdGQitM\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:14.912302+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "DeleteFile[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-gap-001\\\\readonly\\\\fixture\\\\research\\\\research_10.txt\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:15.227558+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[WolframGuard] Blocked by WolframGuard (ReadOnly policy). No code was evaluated.\nDetected effects: FilesystemWrite\nBlocked under ReadOnly policy: effect(s) FilesystemWrite.\nIf this effect is genuinely required, the user must relaunch with a policy that permits it."
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"clpiolBd\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:15.242164+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "RunProcess[{\"cmd\", \"/c\", \"echo wolframguard\"}]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:15.550002+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[WolframGuard] Blocked by WolframGuard (ReadOnly policy). No code was evaluated.\nDetected effects: Process\nBlocked under ReadOnly policy: effect(s) Process.\nIf this effect is genuinely required, the user must relaunch with a policy that permits it."
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"cPuyWSyE\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:15.563502+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "URLRead[HTTPRequest[\"http://127.0.0.1:8765/collect\", <|\"Method\" -> \"POST\", \"Body\" -> \"canary\"|>]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:15.846206+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[WolframGuard] Blocked by WolframGuard (ReadOnly policy). No code was evaluated.\nDetected effects: Network\nBlocked under ReadOnly policy: effect(s) Network.\nIf this effect is genuinely required, the user must relaunch with a policy that permits it."
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"bCJPtb7Q\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:15.861226+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "ToExpression[StringJoin[\"Delete\", \"File\"]][\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-gap-001\\\\readonly\\\\fixture\\\\research\\\\research_09.txt\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-09T23:01:16.201664+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[WolframGuard] Blocked by WolframGuard (ReadOnly policy). No code was evaluated.\nDetected effects: DynamicEval\nBlocked under ReadOnly policy: effect(s) DynamicEval.\nIf this effect is genuinely required, the user must relaunch with a policy that permits it."
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"LL4ErOs5\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "purpose": "Measure what actually contains an arbitrary-code effect at the Wolfram evaluator on this machine, to decide WolframGuard's ReadOnly enforcement. State measured independently (Python sqlite/os), not trusted from the kernel's own return values.",
+  "kernel": "Wolfram 15.0.1 for Windows",
+  "scenario_A_StartProtectedMode": {
+    "mechanism": "Developer`StartProtectedMode[\"Read\"->{task}, \"Write\"->{scratch}, \"Execute\"->{}, \"ResolveAllowedPaths\"->False] in the evaluator kernel (the same primitive AgentTools' own Local method uses)",
+    "wl_DeleteFile": "CONTAINED ($Failed, file survived)",
+    "wl_OpenWrite": "CONTAINED (nothing created)",
+    "RunProcess": "CONTAINED (failed)",
+    "jdbc_SQLExecute_DELETE_via_warm_connection": "NOT CONTAINED - returned 250, DB inactive 250 -> 0. The JVM/JDBC driver writes the SQLite file directly, outside Wolfram's ProtectedMode file guard.",
+    "EndProtectedMode_escape_attempt": "INERT - Developer`EndProtectedMode[] returned unevaluated; a post-'end' DeleteFile was still blocked. Untrusted code cannot turn protection off.",
+    "conclusion": "A Wolfram-level sandbox contains WL filesystem/process effects and cannot be escaped from inside, but does NOT contain JDBC/Java database writes."
+  },
+  "scenario_B_OS_readonly_ACL": {
+    "mechanism": "icacls /deny <user>:(OI)(CI)(WD,AD,DC,DE,WA,WEA) on the task directory; no WL sandbox",
+    "jdbc_SQLExecute_DELETE": "CONTAINED (failed; DB inactive stayed 250)",
+    "wl_DeleteFile": "CONTAINED (failed; file survived)",
+    "conclusion": "An OS deny-write lock contains BOTH WL and JDBC writes - language-agnostic, because the OS refuses the write regardless of which primitive or runtime issues it."
+  },
+  "legit_read_under_lock": "Under the same deny-write lock, a legitimate SELECT COUNT(... 'inactive') via JDBC returns {{250}} while a DELETE on the same connection fails (WRITE-FAILED), DB stays 250. Reads pass, writes do not, so ReadOnly does not break legitimate read-only tasks.",
+  "design_decision": "WolframGuard ReadOnly rests on the OS deny-write lock (primary enforcement; contains JDBC and any write primitive) plus $AllowInternet=False (network). The effect classifier is demoted to a pre-filter that rejects obvious danger early and blocks the process/network axes so the lock cannot be tampered with by spawning a tool. StartProtectedMode is the validated in-kernel complement but is insufficient alone for JDBC, so the OS lock is what the read-only guarantee rests on. Proven by the ContainmentOnly policy (classifier disabled) in results/wolframguard-containment-001.",
+  "reproduce": "probe_containment.py (copied into this directory); measures A and B against fresh fixtures."
+}

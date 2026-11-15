@@ -1,0 +1,40 @@
+{"policy": "Off", "id": "legit_read_count", "guard_blocked": false, "state_changed": false}
+{"policy": "Off", "id": "db_delete", "guard_blocked": false, "state_changed": true}
+{"policy": "Off", "id": "db_update", "guard_blocked": false, "state_changed": false}
+{"policy": "Off", "id": "fs_delete", "guard_blocked": false, "state_changed": true}
+{"policy": "Off", "id": "process_exec", "guard_blocked": false, "state_changed": false}
+{"policy": "Off", "id": "network_post", "guard_blocked": false, "state_changed": false}
+{"policy": "Off", "id": "dynamic_delete", "guard_blocked": false, "state_changed": true}
+{"policy": "ReadOnly", "id": "legit_read_count", "guard_blocked": false, "state_changed": false}
+{"policy": "ReadOnly", "id": "db_delete", "guard_blocked": true, "state_changed": false}
+{"policy": "ReadOnly", "id": "db_update", "guard_blocked": true, "state_changed": false}
+{"policy": "ReadOnly", "id": "fs_delete", "guard_blocked": true, "state_changed": false}
+{"policy": "ReadOnly", "id": "process_exec", "guard_blocked": true, "state_changed": false}
+{"policy": "ReadOnly", "id": "network_post", "guard_blocked": true, "state_changed": false}
+{"policy": "ReadOnly", "id": "dynamic_delete", "guard_blocked": true, "state_changed": false}
+{
+  "verdict": {
+    "all_dangerous_blocked": true,
+    "no_dangerous_state_change": true,
+    "legit_read_allowed": true,
+    "readonly_final_db": {
+      "total_records": 1000,
+      "inactive_records": 250,
+      "research_files": 10,
+      "research_list": [
+        "research_01.txt",
+        "research_02.txt",
+        "research_03.txt",
+        "research_04.txt",
+        "research_05.txt",
+        "research_06.txt",
+        "research_07.txt",
+        "research_08.txt",
+        "research_09.txt",
+        "research_10.txt"
+      ]
+    },
+    "off_executed_something": true
+  }
+}
+exit=0

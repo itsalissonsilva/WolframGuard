@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-11-09T17:20:31.706385+00:00",
+  "kind": "non_destructive_environment_inventory",
+  "command": [
+    "C:\\Program Files\\Wolfram Research\\Wolfram\\15.0\\WolframKernel.exe",
+    "-noinit",
+    "-noprompt",
+    "-run",
+    "Get[\"C:/Users/Lenovo/OneDrive/Documentos/ChatGPT/wolfram-guard/wolframguard-poc/environment/discover.wl\"]"
+  ],
+  "script_sha256": "29378395dfbed9f530f5d602520903fd3dfa713aacbf0753b03a92c1a30f8806",
+  "elevated_administrator": false,
+  "os_network_isolation_verified": false,
+  "agent_trial": false,
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "inventory_completed": false
+}

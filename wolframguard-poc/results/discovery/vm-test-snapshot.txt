@@ -1,0 +1,6 @@
+SnapshotName="wolframguard-before-isolation-20261109"
+SnapshotUUID="0df3ca50-d938-4b87-a195-15b6701e0215"
+SnapshotDescription="Before authorized disposable WolframGuard PoC isolation; original NIC1 NAT, VM powered off."
+CurrentSnapshotName="wolframguard-before-isolation-20261109"
+CurrentSnapshotUUID="0df3ca50-d938-4b87-a195-15b6701e0215"
+CurrentSnapshotNode="SnapshotName"

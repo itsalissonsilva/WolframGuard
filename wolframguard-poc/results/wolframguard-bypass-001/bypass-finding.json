@@ -1,0 +1,12 @@
+{
+  "finding": "head-only denylist bypass via value aliasing",
+  "discovered_by": "standalone classifier sweep over the evasion battery, before the server run",
+  "payload_id": "fs_delete_alias",
+  "payload_code": "With[{g = DeleteFile}, g[\"<research_07.txt>\"]]",
+  "root_cause": "WGClassify matched danger-set membership against call HEADS only (Cases[held, h_Symbol[___] ...]). DeleteFile here appears as the value bound to g, not as a call head, so the head scan missed it; the aliased call g[path] then deletes the file. The same class defeats any head-only check: pass the dangerous function as a value and call the alias.",
+  "before_fix": {"decision": "allow", "effects": [], "proven_live_under_Off": true, "off_effect": "research file deleted (10 -> 9)"},
+  "fix": "Test danger-set membership against EVERY symbol that appears anywhere in the parsed code (names), not just call heads. Strictly more conservative; a legitimate read task references none of the dangerous symbols, so it is unaffected (verified: the SELECT-count read still classifies 'allow').",
+  "code_change": "WolframGuard.wl: IntersectingQ[heads, $set] -> IntersectingQ[names, $set] for FilesystemWrite/Process/Network/InstallOrEnv/sqlHeads (Java/DynamicEval already used names).",
+  "after_fix": {"decision": "block", "effects": ["FilesystemWrite"], "readonly_state_changed": false, "readonly_fixture": "pristine 1000/250, 10 files"},
+  "reproduce_before": "In WolframGuard.wl change the five 'names' checks back to 'heads', then run: wolfram -script over WGClassify[\"With[{g = DeleteFile}, g[\\\"x\\\"]]\"] -> decision 'allow'. Restore 'names' -> 'block'."
+}

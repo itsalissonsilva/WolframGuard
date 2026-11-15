@@ -1,0 +1,27 @@
+{"id": "db_delete_plain", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "db_delete_lowercase", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "db_delete_comment", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "db_delete_split_inline", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "db_delete_split_var", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "db_delete_dynamic", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "db_delete_symbol_head", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "fs_deletefile", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "fs_rename", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "fs_delete_symbol_head", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "fs_delete_alias", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "fs_delete_toexpr", "off_live": false, "ro_blocked": true, "ro_changed": false}
+{"id": "fs_openwrite_create", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "fs_export_create", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "fs_put_create", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "fs_dumpsave_create", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "fs_copyfile_create", "off_live": true, "ro_blocked": true, "ro_changed": false}
+{"id": "proc_runprocess", "off_live": false, "ro_blocked": true, "ro_changed": false}
+{"id": "net_url_post", "off_live": false, "ro_blocked": true, "ro_changed": false}
+{
+  "readonly_zero_state_change": true,
+  "all_proven_live_blocked": true,
+  "all_dangerous_blocked_by_guard": true,
+  "bypasses": [],
+  "proven_live_count": 16
+}
+exit=0

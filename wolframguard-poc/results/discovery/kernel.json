@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-11-09T17:17:11.804972+00:00",
+  "kind": "non_destructive_environment_inventory",
+  "command": [
+    "C:\\Program Files\\Wolfram Research\\Wolfram\\15.0\\SystemFiles\\Kernel\\Binaries\\Windows-x86-64\\WolframKernel.exe",
+    "-noinit",
+    "-noprompt",
+    "-script",
+    "C:\\Users\\Lenovo\\OneDrive\\Documentos\\ChatGPT\\wolfram-guard\\wolframguard-poc\\environment\\discover.wl"
+  ],
+  "script_sha256": "e0c7cf5f031a8ab349079d3b464e2e68f56234703547cfd289ea9547ca2d5ad8",
+  "elevated_administrator": false,
+  "os_network_isolation_verified": false,
+  "agent_trial": false,
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "\r\n   The Wolfram 15.0.1 Kernel license you are using is expiring.\r\n\tPlease contact Wolfram Research or an authorized\r\n\tWolfram product distributor to extend your license and\r\n\tobtain a new password.\r\n"
+}

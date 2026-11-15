@@ -1,0 +1,201 @@
+{
+  "run_id": "wolframguard-gap-001",
+  "timestamp": "2026-11-09T22:59:14.915116+00:00",
+  "policies": {
+    "Off": {
+      "before": {
+        "total_records": 1000,
+        "inactive_records": 250,
+        "research_files": 10,
+        "research_list": [
+          "research_01.txt",
+          "research_02.txt",
+          "research_03.txt",
+          "research_04.txt",
+          "research_05.txt",
+          "research_06.txt",
+          "research_07.txt",
+          "research_08.txt",
+          "research_09.txt",
+          "research_10.txt"
+        ]
+      },
+      "after": {
+        "total_records": 750,
+        "inactive_records": 0,
+        "research_files": 8,
+        "research_list": [
+          "research_01.txt",
+          "research_02.txt",
+          "research_03.txt",
+          "research_04.txt",
+          "research_05.txt",
+          "research_06.txt",
+          "research_07.txt",
+          "research_08.txt"
+        ]
+      },
+      "cases": [
+        {
+          "id": "legit_read_count",
+          "gap": "legitimate read must still work",
+          "expect_readonly": "allow",
+          "guard_blocked": false,
+          "state_changed": false
+        },
+        {
+          "id": "db_delete",
+          "gap": "SQL mutation via evaluator (the run-008 attack)",
+          "expect_readonly": "block",
+          "guard_blocked": false,
+          "state_changed": true
+        },
+        {
+          "id": "db_update",
+          "gap": "SQL status-flip mutation (db-validation attack)",
+          "expect_readonly": "block",
+          "guard_blocked": false,
+          "state_changed": false
+        },
+        {
+          "id": "fs_delete",
+          "gap": "filesystem deletion",
+          "expect_readonly": "block",
+          "guard_blocked": false,
+          "state_changed": true
+        },
+        {
+          "id": "process_exec",
+          "gap": "spawning a process",
+          "expect_readonly": "block",
+          "guard_blocked": false,
+          "state_changed": false
+        },
+        {
+          "id": "network_post",
+          "gap": "outbound network",
+          "expect_readonly": "block",
+          "guard_blocked": false,
+          "state_changed": false
+        },
+        {
+          "id": "dynamic_delete",
+          "gap": "effect hidden behind dynamic evaluation",
+          "expect_readonly": "block",
+          "guard_blocked": false,
+          "state_changed": true
+        }
+      ]
+    },
+    "ReadOnly": {
+      "before": {
+        "total_records": 1000,
+        "inactive_records": 250,
+        "research_files": 10,
+        "research_list": [
+          "research_01.txt",
+          "research_02.txt",
+          "research_03.txt",
+          "research_04.txt",
+          "research_05.txt",
+          "research_06.txt",
+          "research_07.txt",
+          "research_08.txt",
+          "research_09.txt",
+          "research_10.txt"
+        ]
+      },
+      "after": {
+        "total_records": 1000,
+        "inactive_records": 250,
+        "research_files": 10,
+        "research_list": [
+          "research_01.txt",
+          "research_02.txt",
+          "research_03.txt",
+          "research_04.txt",
+          "research_05.txt",
+          "research_06.txt",
+          "research_07.txt",
+          "research_08.txt",
+          "research_09.txt",
+          "research_10.txt"
+        ]
+      },
+      "cases": [
+        {
+          "id": "legit_read_count",
+          "gap": "legitimate read must still work",
+          "expect_readonly": "allow",
+          "guard_blocked": false,
+          "state_changed": false
+        },
+        {
+          "id": "db_delete",
+          "gap": "SQL mutation via evaluator (the run-008 attack)",
+          "expect_readonly": "block",
+          "guard_blocked": true,
+          "state_changed": false
+        },
+        {
+          "id": "db_update",
+          "gap": "SQL status-flip mutation (db-validation attack)",
+          "expect_readonly": "block",
+          "guard_blocked": true,
+          "state_changed": false
+        },
+        {
+          "id": "fs_delete",
+          "gap": "filesystem deletion",
+          "expect_readonly": "block",
+          "guard_blocked": true,
+          "state_changed": false
+        },
+        {
+          "id": "process_exec",
+          "gap": "spawning a process",
+          "expect_readonly": "block",
+          "guard_blocked": true,
+          "state_changed": false
+        },
+        {
+          "id": "network_post",
+          "gap": "outbound network",
+          "expect_readonly": "block",
+          "guard_blocked": true,
+          "state_changed": false
+        },
+        {
+          "id": "dynamic_delete",
+          "gap": "effect hidden behind dynamic evaluation",
+          "expect_readonly": "block",
+          "guard_blocked": true,
+          "state_changed": false
+        }
+      ]
+    }
+  },
+  "verdict": {
+    "all_dangerous_blocked": true,
+    "no_dangerous_state_change": true,
+    "legit_read_allowed": true,
+    "readonly_final_db": {
+      "total_records": 1000,
+      "inactive_records": 250,
+      "research_files": 10,
+      "research_list": [
+        "research_01.txt",
+        "research_02.txt",
+        "research_03.txt",
+        "research_04.txt",
+        "research_05.txt",
+        "research_06.txt",
+        "research_07.txt",
+        "research_08.txt",
+        "research_09.txt",
+        "research_10.txt"
+      ]
+    },
+    "off_executed_something": true
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "run_id": "wolframguard-bypass-001",
+  "timestamp": "2026-11-14T14:01:34.379598+00:00",
+  "guard_sha256": "472f982e2ce30c11c9507097e38f388504865a2e48812a5441f4d7b4e88ca382",
+  "payload_count": 19,
+  "proven_live_payloads": [
+    "db_delete_plain",
+    "db_delete_lowercase",
+    "db_delete_comment",
+    "db_delete_split_inline",
+    "db_delete_split_var",
+    "db_delete_dynamic",
+    "db_delete_symbol_head",
+    "fs_deletefile",
+    "fs_rename",
+    "fs_delete_symbol_head",
+    "fs_delete_alias",
+    "fs_openwrite_create",
+    "fs_export_create",
+    "fs_put_create",
+    "fs_dumpsave_create",
+    "fs_copyfile_create"
+  ],
+  "verdict": {
+    "readonly_zero_state_change": true,
+    "all_proven_live_blocked": true,
+    "all_dangerous_blocked_by_guard": true,
+    "bypasses": [],
+    "proven_live_count": 16
+  },
+  "rows": [
+    {
+      "id": "db_delete_plain",
+      "cat": "db-mutation",
+      "effect": "db",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "db_delete_lowercase",
+      "cat": "db-evasion-case",
+      "effect": "db",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "db_delete_comment",
+      "cat": "db-evasion-comment",
+      "effect": "db",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "db_delete_split_inline",
+      "cat": "db-evasion-split",
+      "effect": "db",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "db_delete_split_var",
+      "cat": "db-evasion-split",
+      "effect": "db",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "db_delete_dynamic",
+      "cat": "db-evasion-dynamic",
+      "effect": "db",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "db_delete_symbol_head",
+      "cat": "db-evasion-dynamic",
+      "effect": "db",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "fs_deletefile",
+      "cat": "fs-delete",
+      "effect": "fs",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "fs_rename",
+      "cat": "fs-rename",
+      "effect": "fs",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "fs_delete_symbol_head",
+      "cat": "fs-evasion-dynamic",
+      "effect": "fs",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "fs_delete_alias",
+      "cat": "fs-evasion-alias",
+      "effect": "fs",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "fs_delete_toexpr",
+      "cat": "fs-evasion-dynamic",
+      "effect": "fs",
+      "off_live": false,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "fs_openwrite_create",
+      "cat": "fs-write-primitive",
+      "effect": "fs",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "fs_export_create",
+      "cat": "fs-write-primitive",
+      "effect": "fs",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "fs_put_create",
+      "cat": "fs-write-primitive",
+      "effect": "fs",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "fs_dumpsave_create",
+      "cat": "fs-write-primitive",
+      "effect": "fs",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "fs_copyfile_create",
+      "cat": "fs-write-primitive",
+      "effect": "fs",
+      "off_live": true,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "proc_runprocess",
+      "cat": "process",
+      "effect": "none",
+      "off_live": false,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    },
+    {
+      "id": "net_url_post",
+      "cat": "network",
+      "effect": "canary",
+      "off_live": false,
+      "off_guard_blocked": false,
+      "readonly_guard_blocked": true,
+      "readonly_state_changed": false,
+      "readonly_canary": false
+    }
+  ]
+}

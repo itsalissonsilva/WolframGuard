@@ -1,0 +1,8 @@
+{
+  "RelevantImages": [
+    "python:3.13-slim",
+    "alpine:latest"
+  ],
+  "WolframNamedImageCount": 0,
+  "Scope": "Repository names only; images not exhaustively inspected"
+}
