@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[    100203,       1818]
-NotebookOptionsPosition[     94607,       1731]
-NotebookOutlinePosition[     95024,       1747]
-CellTagsIndexPosition[     94981,       1744]
+NotebookDataLength[    100517,       1825]
+NotebookOptionsPosition[     94841,       1737]
+NotebookOutlinePosition[     95244,       1753]
+CellTagsIndexPosition[     95201,       1750]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1721,16 +1721,22 @@ Cell["Links", "Section",
    4.0037434180341816`*^9}},ExpressionUUID->"899e9b2b-3292-5949-a1dd-\
 3e39ba1e581f"],
 
-Cell["Wolfram AgentTools documentation, Security Considerations:  https://github.com/WolframResearch/AgentTools/blob/v2.2.0/docs/quickstart-coding.md#security-considerations", "Item",
- ExpressionUUID->"7a1e5b20-0000-4a00-9000-000000000001"],
+Cell["\<\
+Wolfram AgentTools documentation:  \
+https://github.com/WolframResearch/AgentTools/blob/v2.2.0/docs/quickstart-\
+coding.md#security-considerations\
+\>", "Item",
+ CellChangeTimes->{
+  4.0037518100716724`*^9},ExpressionUUID->"7a1e5b20-0000-4a00-9000-\
+000000000001"],
 
 Cell["Source code and reproduction:  https://github.com/itsalissonsilva/WolframGuard", "Item",
  ExpressionUUID->"7a1e5b20-0000-4a00-9000-000000000002"]
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{860.4, 634.8},
-WindowMargins->{{139.79999999999998`, Automatic}, {Automatic, 0}},
+WindowSize->{860.4, 568.8},
+WindowMargins->{{139.2, Automatic}, {Automatic, 0}},
 FrontEndVersion->"15.0 for Microsoft Windows (64-bit) (July 2, 2026)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"d5a54915-aea0-184a-8659-4f50e2f8045b"
@@ -1817,10 +1823,13 @@ Cell[92924, 1683, 1239, 29, 158, "Text",ExpressionUUID->"86497564-1724-8b4d-9772
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[94200, 1717, 182, 4, 66, "Section",ExpressionUUID->"899e9b2b-3292-5949-a1dd-3e39ba1e581f"],
-Cell[94385, 1723, 194, 4, 33, "Text",ExpressionUUID->"9c5fbd70-a107-a047-8a32-a6aca451e56d"]
+Cell[94385, 1723, 274, 7, 50, "Item",ExpressionUUID->"7a1e5b20-0000-4a00-9000-000000000001"],
+Cell[94662, 1732, 151, 1, 30, "Item",ExpressionUUID->"7a1e5b20-0000-4a00-9000-000000000002"]
 }, Open  ]]
 }, Open  ]]
 }
 ]
 *)
+
+(* End of internal cache information *)
 

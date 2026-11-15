@@ -7,10 +7,13 @@ standing between a prompt-injected `DELETE` and your database is a single approv
 in the chat client. WolframGuard adds a second line of defense inside the server. For a
 read-only task it places an operating-system read-only lock on the authorized data, so a
 write fails at the OS no matter which primitive or language the model's code uses, with a
-parse-before-run classifier in front as a fast pre-filter. The policy is one the model
-cannot widen.
+parse-before-run classifier in front that acts as a fast pre-filter. The policy is one the
+model cannot widen so the worst a prompt injection can do is force a read, every other
+write it attempts fails at the OS lock.
 
-## The checkable result
+![WolframGuard architecture: an injected write passes the MCP client approval but fails at the operating-system read-only lock inside the server](wolframguard-poc/reports/wolframguard-architecture.png)
+
+## Security gaps
 
 Nineteen evasion payloads (SQL with its keywords split apart, code hidden inside
 `ToExpression`, dangerous functions passed as values, writes through obscure primitives,
@@ -29,12 +32,12 @@ fixture changed. The read-only guarantee rests on containment, not on a denylist
 complete. We also measured the OS lock stopping the JDBC database write that a
 Wolfram-level sandbox (`Developer`StartProtectedMode`) lets straight through.
 
-## Read the submission
+## Read the notebook
 
-- [`wolframguard-poc/reports/SUBMISSION.md`](wolframguard-poc/reports/SUBMISSION.md) — the
-  full write-up: the problem, the gap we measured, the guard we built, and the evidence.
-- [`wolframguard-poc/reports/SUBMISSION.nb`](wolframguard-poc/reports/SUBMISSION.nb) — the
-  same submission as a Wolfram notebook, with the architecture diagram.
+The full write-up is the Wolfram notebook
+[`WolframGuard-Hackathon.nb`](wolframguard-poc/reports/WolframGuard-Hackathon.nb): the
+problem, the gap we measured, the guard we built, the evidence, and the architecture
+diagram.
 
 ## Reproduce it
 
