@@ -1,7 +1,4 @@
 # WolframGuard
-
-**A containment-based read-only guard for the Wolfram agent evaluator.**
-
 When an AI agent is handed the Wolfram Language evaluator as a tool, the only thing
 standing between a prompt-injected `DELETE` and your database is a single approval click
 in the chat client. WolframGuard adds a second line of defense inside the server. For a
