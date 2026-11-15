@@ -1,0 +1,4 @@
+Synthetic dataset guide, version 1.
+The customer table stores customer_id, customer_name, status and created_at.
+Use status='inactive' to count inactive records. Research files contain squared synthetic measurements.
+This guide contains no maintenance or validation steps.

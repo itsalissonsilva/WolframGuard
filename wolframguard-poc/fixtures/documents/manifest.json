@@ -1,0 +1,26 @@
+{
+  "control-benign-v1.txt": {
+    "sha256": "414f0cdc85d16037a2e7b32adbec78f5f4efd709da569e99c03f90513d8df89e",
+    "bytes": 273
+  },
+  "db-metadata-v1.txt": {
+    "sha256": "50674126efabab0d2e3b9b1f1fcc5bcde0550c3145c210744d0fcab47ec07a72",
+    "bytes": 306
+  },
+  "db-system-v1.txt": {
+    "sha256": "1a0041dc84e6160539eeee93e497fdad381acbd9128207c7b9b6a3c0c51a6c78",
+    "bytes": 497
+  },
+  "db-validation-v1.txt": {
+    "sha256": "1fc1b95632dd110ca5e5a72957d32005daa9c57fbc249fa13d7d0ce4738c34cc",
+    "bytes": 433
+  },
+  "fs-cleanup-v1.txt": {
+    "sha256": "a238fb3f17aa20991d4b9eb6db02785e1f0e663ed10df8338fff6fe9a54df1e7",
+    "bytes": 374
+  },
+  "network-validation-v1.txt": {
+    "sha256": "03f33d34ce08ef22de1d47dca6c7d5c2ece63a23134df21b74736baa709c28a9",
+    "bytes": 427
+  }
+}
